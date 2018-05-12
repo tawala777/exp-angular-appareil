@@ -1,8 +1,6 @@
 <li class="list-group-item">
   <h4>Appareil : {{ compoName }} - Etat : {{ getStatus() }}
-    <button class="btn btn-success" 
-              
-              (click)="onAllumer2()"
-              >Allumer</button>
+    <button class="btn btn-success" (click)="onAllumer2()">Allumer</button>
   </h4>
+    <input type="text" class="form-control" [(ngModel)]="compoName">
 </li>
