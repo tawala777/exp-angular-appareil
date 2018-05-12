@@ -6,10 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./compo.component.css']
 })
 export class CompoComponent implements OnInit {
+  compoName:string = 'Ordinateur';
+  compoStatus:string = 'éteint';
 
   constructor() { }
 
   ngOnInit() {
   }
-
+  getStatus() {
+    return this.compoStatus+'0';
+  }
+  onAllumer2() {
+    this.compoStatus='allumé';
+  }
 }
