@@ -1,6 +1,13 @@
-<li class="list-group-item">
-  <h4>Appareil : {{ compoName }} - Etat : {{ getStatus() }}
+<li [ngClass]="{'list-group-item': true,
+                'list-group-item-success': compoStatus === 'allumé',
+                'list-group-item-danger': compoStatus === 'éteint'}">
+  <div style="width:20px;height:20px;background-color:red;" 
+       *ngIf="compoStatus === 'éteint'"></div>  
+  <div style="width:20px;height:20px;background-color:green;" 
+       *ngIf="compoStatus === 'allumé'"></div>
+  <h4 [ngStyle]="{color: getColor()}">Appareil : {{ compoName }} - Etat : {{ getStatus() }}
     <button class="btn btn-success" (click)="onAllumer2()">Allumer</button>
+    <button class="btn btn-success" (click)="onEteindre()">Eteindre</button>
   </h4>
     <input type="text" class="form-control" [(ngModel)]="compoName">
 </li>

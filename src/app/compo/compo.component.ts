@@ -1,4 +1,4 @@
-import { Component,  OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-compo',
@@ -6,8 +6,9 @@ import { Component,  OnInit } from '@angular/core';
   styleUrls: ['./compo.component.css']
 })
 export class CompoComponent implements OnInit {
-  compoName:string = 'Ordinateur';
-  compoStatus:string = 'éteint';
+  @Input() compoName: string;
+  @Input() compoStatus: string;
+ 
 
   constructor() { }
 
@@ -18,5 +19,13 @@ export class CompoComponent implements OnInit {
   }
   onAllumer2() {
     this.compoStatus='allumé';
+  }  
+  onEteindre() {
+    this.compoStatus='éteint';
+  }
+  getColor() {
+    if (this.compoStatus == 'allumé') return 'blue'
+    else if (this.compoStatus == 'éteint') return 'orange' 
+    else return 'black';
   }
 }
