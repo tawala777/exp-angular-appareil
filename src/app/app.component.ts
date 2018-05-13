@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import 'rxjs/add/observable/interval';
+import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -10,13 +10,22 @@ import 'rxjs/add/observable/interval';
 
 export class AppComponent implements OnInit {
   title = 'app';
-
-//  lastUpdate = new Date();
-  
+  tempspasse: number;
   
   constructor() {
     
   }
   ngOnInit() {
-  }
+    const counter = interval(1000);
+    counter.subscribe( (value) => {
+        this.tempspasse = value;
+        },
+        (error) => {
+          console.log('Uh-oh, an error occurred! : ' + error);
+        },
+        () => {
+          console.log('Observable complete!');
+        }
+      );
+    }
 }
