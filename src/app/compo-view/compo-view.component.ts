@@ -19,7 +19,13 @@ export class CompoViewComponent implements OnInit {
     );
   });
   
-  constructor(private appSrv: AppareilService) { }
+  constructor(private appSrv: AppareilService) { 
+    setTimeout(
+      () => {
+        this.isAuth = true;
+      }, 4000
+    );
+  }
 
 
   ngOnInit() {

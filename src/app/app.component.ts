@@ -9,16 +9,12 @@ import { Component, OnInit } from '@angular/core';
 
 export class AppComponent implements OnInit {
   title = 'app';
-  isAuth = false;
+
 //  lastUpdate = new Date();
   
   
   constructor() {
-    setTimeout(
-      () => {
-        this.isAuth = true;
-      }, 4000
-    );
+    
   }
   ngOnInit() {
   }

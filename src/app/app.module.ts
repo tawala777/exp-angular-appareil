@@ -6,21 +6,23 @@ import { FormsModule } from '@angular/forms';
 import { AppareilService } from './services/appareil.service';
 import { AuthService } from './services/auth.service';
 
+import { Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { CompoComponent } from './compo/compo.component';
 import { AuthComponent } from './auth/auth.component';
 import { CompoViewComponent } from './compo-view/compo-view.component';
 import { SingleCompoComponent } from './single-compo/single-compo.component';
+import { NotfoundComponent } from './notfound/notfound.component';
 
-
-import { Routes } from '@angular/router';
 
 const appRoutes: Routes = [
   { path: 'appareils', component: CompoViewComponent },
   { path: 'appareils/:id', component: SingleCompoComponent },
   { path: 'auth', component: AuthComponent },
-  { path: '', component: CompoViewComponent }
+  { path: '', component: AuthComponent },
+  { path: 'not-found', component: NotfoundComponent },
+  { path: '**', redirectTo: 'not-found' }
 ];
 
 @NgModule({
@@ -29,7 +31,8 @@ const appRoutes: Routes = [
     CompoComponent,
     AuthComponent,
     CompoViewComponent,
-    SingleCompoComponent
+    SingleCompoComponent,
+    NotfoundComponent
   ],
   imports: [
     BrowserModule,

@@ -1,22 +1,22 @@
 export class AppareilService {
   appareils = [
     {
-      id: 1,
+      id: 11,
       name: 'Machine à laver',
       status: 'éteint'
     },
     {
-      id: 2,
+      id: 12,
       name: 'Réfrigerateur',
       status: 'allumé'
     },
     {
-      id: 4,
+      id: 41,
       name: 'Ordinateur',
       status: 'éteint'
     },
     {
-      id: 5,
+      id: 52,
       name: 'Poste de télévision',
       status: 'allumé'
     }
@@ -42,11 +42,11 @@ export class AppareilService {
       this.appareils[i].status= 'allumé';
   }
   getAppareilById(id: number) {
-    const appareil = this.appareils.find(
+    const obj = this.appareils.find(
       (s) => {
         return s.id === id;
       }
     );
-    return appareil;
+    return obj;
   }
 }

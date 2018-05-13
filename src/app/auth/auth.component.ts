@@ -20,7 +20,7 @@ export class AuthComponent implements OnInit {
       () => {
         this.authStatus = this.authSrv.isAuth;
         console.log('je suis connecté = ',this.authStatus);
-        //this.router.navigate(['appareils']);
+        this.router.navigate(['appareils']);
       }
     )
 
