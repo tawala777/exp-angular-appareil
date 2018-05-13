@@ -6,9 +6,19 @@ import { AppareilService } from '../services/appareil.service';
   templateUrl: './compo-view.component.html',
   styleUrls: ['./compo-view.component.css']
 })
+
 export class CompoViewComponent implements OnInit {
   appareils : any[];
   isAuth = false;
+  lastUpdate = new Promise((resolve, reject) => {
+    const date = new Date();
+    setTimeout(
+      () => {
+        resolve(date);
+      }, 2000
+    );
+  });
+  
   constructor(private appSrv: AppareilService) { }
 
 

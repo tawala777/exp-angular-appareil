@@ -17,7 +17,7 @@ export class CompoComponent implements OnInit {
   ngOnInit() {
   }
   getStatus() {
-    return this.compoStatus+'0';
+    return this.compoStatus+'!';
   }
   onAllumer2() {
     this.appSrv.allumerOne(this.index);
