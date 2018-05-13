@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AppareilService } from './services/appareil.service';
+
 
 @Component({
   selector: 'app-root',
@@ -20,9 +20,7 @@ export class AppComponent implements OnInit {
     );
   });
   
-  appareils : any[];
-
-  constructor(private appSrv: AppareilService) {
+  constructor() {
     setTimeout(
       () => {
         this.isAuth = true;
@@ -30,20 +28,5 @@ export class AppComponent implements OnInit {
     );
   }
   ngOnInit() {
-    /* BAD PRACTICE !*/ 
-    this.appareils = this.appSrv.appareils;
   }
-  onAllumer() {
-    console.log('On allume tout !');
-    this.appSrv.allumerTout();
-  }  
-  onEteindre() {
-    console.log('On éteint tout !');
-    
-    if(confirm('Etes-vous sûr de vouloir éteindre tous vos appareils ?')) {
-      this.appSrv.eteindreTout();
-    } else {
-      return null;
-    }
-  } 
 }

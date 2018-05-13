@@ -3,21 +3,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <h2>Mes appareils</h2>
-      <p>Mis à jour : {{ lastUpdate | async | date : 'short'}}</p>
-      <ul class="list-group">
-
-        <app-compo *ngFor="let obj of appareils; let i = index" 
-              [compoName]="obj.name" [compoStatus]="obj.status" [index]=i> 
-        </app-compo>
-
-      </ul>
-      <button class="btn btn-success" [disabled]="!isAuth"
-              (click)="onAllumer()"
-              >Tout allumer</button>      
-      <button class="btn btn-danger" [disabled]="!isAuth"
-              (click)="onEteindre()"
-              >Tout éteindre</button>
+      <app-compo-view></app-compo-view>
     </div>
   </div>
 </div>
