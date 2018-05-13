@@ -10,17 +10,18 @@ export class CompoComponent implements OnInit {
   @Input() compoName: string;
   @Input() compoStatus: string;
   @Input() index: number;
-  
+  @Input() id: number;
 
   constructor(private appSrv: AppareilService) { }
 
   ngOnInit() {
   }
   getStatus() {
-    return this.compoStatus+'0';
+    return this.compoStatus+'!';
   }
   onAllumer2() {
     this.appSrv.allumerOne(this.index);
+    console.log('index=',this.index);
   }  
   onEteindre2() {
     this.appSrv.eteindreOne(this.index);
