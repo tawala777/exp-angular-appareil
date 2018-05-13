@@ -28,13 +28,13 @@ export class AppareilService {
     for(let app of this.appareils){
         app.status = 'allumé'
     }
-  }  
+  }
   eteindreOne(i:number){
       console.log('On éteint l"apppareil ',i);
       this.appareils[i].status= 'éteint';
   }
   allumerOne(i:number){
-      console.log('On allume l"apppareil ',i);
+      console.log('AMBRETTE  allume l"apppareil ',i);
       this.appareils[i].status= 'allumé';
   }
 }
