@@ -15,18 +15,6 @@ export class AppareilService {
     {
       name: 'Poste de télévision',
       status: 'allumé'
-    },
-    {
-      name: 'Radiateur éléctrique',
-      status: 'éteint'
-    },
-    {
-      name: 'Micro ondes',
-      status: 'allumé'
-    },
-    {
-      name: 'Lampe',
-      status: 'éteint'
     }
   ];
   eteindreTout(){
@@ -40,5 +28,13 @@ export class AppareilService {
     for(let app of this.appareils){
         app.status = 'allumé'
     }
+  }  
+  eteindreOne(i:number){
+      console.log('On éteint l"apppareil ',i);
+      this.appareils[i].status= 'éteint';
+  }
+  allumerOne(i:number){
+      console.log('On allume l"apppareil ',i);
+      this.appareils[i].status= 'allumé';
   }
 }

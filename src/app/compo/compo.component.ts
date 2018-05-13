@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AppareilService } from '../services/appareil.service';
 
 @Component({
   selector: 'app-compo',
@@ -8,9 +9,10 @@ import { Component, Input, OnInit } from '@angular/core';
 export class CompoComponent implements OnInit {
   @Input() compoName: string;
   @Input() compoStatus: string;
- 
+  @Input() index: number;
+  
 
-  constructor() { }
+  constructor(private appSrv: AppareilService) { }
 
   ngOnInit() {
   }
@@ -18,14 +20,21 @@ export class CompoComponent implements OnInit {
     return this.compoStatus+'0';
   }
   onAllumer2() {
-    this.compoStatus='allumé';
+    this.appSrv.allumerOne(this.index);
   }  
   onEteindre2() {
-    this.compoStatus='éteint';
+    this.appSrv.eteindreOne(this.index);
   }
   getColor() {
     if (this.compoStatus == 'allumé') return 'blue'
     else if (this.compoStatus == 'éteint') return 'orange' 
     else return 'black';
+  }
+  onSwitch() {
+    if(this.compoStatus === 'allumé') {
+      this.appSrv.eteindreOne(this.index);
+    } else if(this.compoStatus === 'éteint') {
+      this.appSrv.allumerOne(this.index);
+    }
   }
 }

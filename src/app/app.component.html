@@ -1,10 +1,4 @@
 
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
- </div>
-
 
 <div class="container">
   <div class="row">
@@ -13,7 +7,9 @@
       <p>Mis à jour : {{ lastUpdate | async | date : 'short'}}</p>
       <ul class="list-group">
 
-        <app-compo *ngFor="let obj of appareils" [compoName]="obj.name" [compoStatus]="obj.status"></app-compo>
+        <app-compo *ngFor="let obj of appareils; let i = index" 
+              [compoName]="obj.name" [compoStatus]="obj.status" [index]=i> 
+        </app-compo>
 
       </ul>
       <button class="btn btn-success" [disabled]="!isAuth"
