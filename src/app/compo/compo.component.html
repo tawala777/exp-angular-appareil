@@ -7,7 +7,7 @@
        *ngIf="compoStatus === 'allumé'"></div>
   <h4 [ngStyle]="{color: getColor()}">Appareil : {{ compoName }} - Etat : {{ getStatus() }}
     <button class="btn btn-success" (click)="onAllumer2()">Allumer</button>
-    <button class="btn btn-success" (click)="onEteindre()">Eteindre</button>
+    <button class="btn btn-success" (click)="onEteindre2()">Eteindre</button>
   </h4>
     <input type="text" class="form-control" [(ngModel)]="compoName">
 </li>

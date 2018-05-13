@@ -20,7 +20,7 @@ export class CompoComponent implements OnInit {
   onAllumer2() {
     this.compoStatus='allumé';
   }  
-  onEteindre() {
+  onEteindre2() {
     this.compoStatus='éteint';
   }
   getColor() {
