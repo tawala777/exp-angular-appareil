@@ -11,11 +11,14 @@ import { AppComponent } from './app.component';
 import { CompoComponent } from './compo/compo.component';
 import { AuthComponent } from './auth/auth.component';
 import { CompoViewComponent } from './compo-view/compo-view.component';
+import { SingleCompoComponent } from './single-compo/single-compo.component';
+
 
 import { Routes } from '@angular/router';
 
 const appRoutes: Routes = [
   { path: 'appareils', component: CompoViewComponent },
+  { path: 'appareils/:id', component: SingleCompoComponent },
   { path: 'auth', component: AuthComponent },
   { path: '', component: CompoViewComponent }
 ];
@@ -25,7 +28,8 @@ const appRoutes: Routes = [
     AppComponent,
     CompoComponent,
     AuthComponent,
-    CompoViewComponent
+    CompoViewComponent,
+    SingleCompoComponent
   ],
   imports: [
     BrowserModule,

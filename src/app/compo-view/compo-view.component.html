@@ -3,7 +3,11 @@
       <ul class="list-group">
 
         <app-compo *ngFor="let obj of appareils; let i = index" 
-              [compoName]="obj.name" [compoStatus]="obj.status" [index]=i> 
+              [compoName]="obj.name" 
+              [compoStatus]="obj.status" 
+              [index]=i
+              [id]="obj.id"
+              > 
         </app-compo>
 
       </ul>

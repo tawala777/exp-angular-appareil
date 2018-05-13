@@ -10,7 +10,7 @@ export class CompoComponent implements OnInit {
   @Input() compoName: string;
   @Input() compoStatus: string;
   @Input() index: number;
-  
+  @Input() id: number;
 
   constructor(private appSrv: AppareilService) { }
 
@@ -21,6 +21,7 @@ export class CompoComponent implements OnInit {
   }
   onAllumer2() {
     this.appSrv.allumerOne(this.index);
+    console.log('index=',this.index);
   }  
   onEteindre2() {
     this.appSrv.eteindreOne(this.index);
