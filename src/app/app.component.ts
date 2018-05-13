@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
 import { interval } from 'rxjs';
 
 @Component({
@@ -8,16 +8,18 @@ import { interval } from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   title = 'app';
   tempspasse: number;
-  
+  counterSubscription : Subscription;
+  authentifie:boolean = false;
+
   constructor() {
     
   }
   ngOnInit() {
     const counter = interval(1000);
-    counter.subscribe( (value) => {
+    this.counterSubscription = counter.subscribe( (value) => {
         this.tempspasse = value;
         },
         (error) => {
@@ -28,4 +30,7 @@ export class AppComponent implements OnInit {
         }
       );
     }
+    ngOnDestroy() {
+    this.counterSubscription.unsubscribe();
+  }
 }
