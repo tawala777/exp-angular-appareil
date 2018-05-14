@@ -11,6 +11,7 @@ export class AuthService {
           setTimeout(
             () => {
               this.isAuth = true;
+              this.emitisAuthSubject();
               console.log('... connecté!');
               resolve(true);
             }, 2000
@@ -23,6 +24,7 @@ export class AuthService {
       console.log('je suis dans le service Auth ...');
       this.isAuth = false;
       console.log('... deconnecté!');
+      this.emitisAuthSubject();
     }
     getAuth(){
       return this.isAuth;
