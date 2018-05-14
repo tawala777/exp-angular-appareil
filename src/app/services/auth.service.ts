@@ -20,6 +20,7 @@ export class AuthService {
       );
     }
   
+    
     signOut() {
       console.log('je suis dans le service Auth ...');
       this.isAuth = false;
