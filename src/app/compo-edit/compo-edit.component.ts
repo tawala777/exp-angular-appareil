@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { AppareilService } from '../services/appareil.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-compo-edit',
@@ -6,12 +9,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./compo-edit.component.css']
 })
 export class CompoEditComponent implements OnInit {
+  defaultOnOff = 'éteint';
+  constructor(private appSrv: AppareilService,
+    private router: Router) { 
 
-  constructor() { }
+  }
 
   ngOnInit() {
   }
-  onSubmit(form) {
-    console.log(form.value)
+  onSubmit(form:NgForm) {
+    console.log(form.value);
+    this.appSrv.ajouterOne(form.value['name'],form.value['status']);
+    this.router.navigate(['/appareils']);
   }
 }

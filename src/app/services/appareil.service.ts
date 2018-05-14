@@ -24,7 +24,8 @@ export class AppareilService {
       status: 'allumé'
     }
   ];
-  
+  private maxId = 52;
+
   emitAppareilSubject() {
     this.appareilsSubject.next(this.appareils.slice());
   }
@@ -60,5 +61,22 @@ export class AppareilService {
       }
     );
     return obj;
+  }
+  getMaxId() {
+    this.maxId++;
+    return this.maxId;
+  }
+  
+  ajouterOne(n:string, s:string){
+    const obj = {
+      id: 0,
+      name: '',
+      status: ''
+    };
+    obj.id = this.getMaxId();
+    obj.name = n;
+    obj.status = s;
+    this.appareils.push(obj);
+    this.emitAppareilSubject();
   }
 }
