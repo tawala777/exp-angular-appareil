@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppareilService } from '../services/appareil.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-compo-view',
@@ -9,6 +10,8 @@ import { AppareilService } from '../services/appareil.service';
 
 export class CompoViewComponent implements OnInit {
   appareils : any[];
+  appareilSubscription: Subscription;
+
   isAuth = false;
   lastUpdate = new Promise((resolve, reject) => {
     const date = new Date();
@@ -30,7 +33,16 @@ export class CompoViewComponent implements OnInit {
 
   ngOnInit() {
     /* BAD PRACTICE !*/ 
-    this.appareils = this.appSrv.appareils;
+    //this.appareils = this.appSrv.appareils;
+    
+    /* BETTER PRACTICE */
+    this.appareilSubscription = this.appSrv.appareilsSubject.subscribe(
+      (appareils: any[]) => {
+        this.appareils = appareils;
+      }
+    );
+    this.appSrv.emitAppareilSubject();
+
   }
   onAllumer() {
     console.log('On allume tout !');

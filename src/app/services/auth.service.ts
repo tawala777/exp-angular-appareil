@@ -11,7 +11,7 @@ export class AuthService {
               this.isAuth = true;
               console.log('... connecté!');
               resolve(true);
-            }, 3000
+            }, 2000
           );
         }
       );
