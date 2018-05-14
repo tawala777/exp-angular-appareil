@@ -31,7 +31,6 @@ export class AuthComponent implements OnInit, OnDestroy {
         //this.router.navigate(['appareils']);
       }
     )
-
   }
   onSeDeconnecter(){
     console.log('on se deconnecte !');

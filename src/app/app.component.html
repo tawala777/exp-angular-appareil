@@ -3,16 +3,17 @@
     <div class="navbar-collapse">
       <ul class="nav navbar-nav">
         <li routerLinkActive="active"><a routerLink="auth">Authentification</a></li>
-        <li routerLinkActive="active"><a routerLink="appareils">Appareils</a></li>
-        <li routerLinkActive="active"><a routerLink="users">Users</a></li>
-        <li routerLinkActive="active"><a routerLink="edit">Nouvel appareil</a></li>
-        <li routerLinkActive="active"><a routerLink="contact">Contact</a></li>
-        <li routerLinkActive="active"><a href="contact">ContactHref</a></li>
+        <li *ngIf="authentifie" routerLinkActive="active"><a routerLink="appareils">Appareils</a></li>
+        <li *ngIf="authentifie" routerLinkActive="active"><a routerLink="users">Users</a></li>
+        <li *ngIf="authentifie" routerLinkActive="active"><a routerLink="edit">Nouvel appareil</a></li>
+        <li *ngIf="authentifie" routerLinkActive="active"><a routerLink="contact">Contact</a></li>
+        <li *ngIf="authentifie" routerLinkActive="active"><a href="contact">ContactHref</a></li>
       </ul>
-      <div class="navbar-right">
+      <div *ngIf="authentifie" class="navbar-right">
+        <p>        <button class="btn btn-link" (click)="onSeDeco()">Se déconnecter</button></p>
+      </div>
+      <div *ngIf="!authentifie" class="navbar-right">
         <p>Vous êtes la depuis {{ tempspasse }} secondes !</p>
-        <p *ngIf="authentifie">Vous etes connecté</p>
-        <p *ngIf="!authentifie">Vous etes déconnecté</p>
       </div>
     </div>
   </div>

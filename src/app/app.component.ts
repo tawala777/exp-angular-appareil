@@ -38,6 +38,12 @@ export class AppComponent implements OnInit, OnDestroy {
       );
       this.authSrv.emitisAuthSubject();
     }
+    onSeDeco(){
+      console.log('on se deconnecte !');
+      this.authSrv.signOut();
+      this.authentifie = this.authSrv.getAuth();
+      console.log('je suis connecté = ',this.authentifie);
+    }
     ngOnDestroy() {
       this.counterSubscription.unsubscribe();
       this.isAuthSubscription.unsubscribe();
