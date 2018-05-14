@@ -16,6 +16,7 @@ import { CompoViewComponent } from './compo-view/compo-view.component';
 import { SingleCompoComponent } from './single-compo/single-compo.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { ContactComponent } from './contact/contact.component';
+import { CompoEditComponent } from './compo-edit/compo-edit.component';
 
 
 const appRoutes: Routes = [
@@ -36,7 +37,8 @@ const appRoutes: Routes = [
     CompoViewComponent,
     SingleCompoComponent,
     NotfoundComponent,
-    ContactComponent
+    ContactComponent,
+    CompoEditComponent
   ],
   imports: [
     BrowserModule,
