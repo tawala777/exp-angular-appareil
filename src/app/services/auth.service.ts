@@ -1,6 +1,8 @@
-export class AuthService {
+import { Subject } from 'rxjs';
 
-    isAuth = false;
+export class AuthService {
+    isAuthSubject = new Subject<boolean>();
+    private isAuth = false;
   
     signIn() {
       console.log('je suis dans le service Auth ...');
@@ -21,5 +23,11 @@ export class AuthService {
       console.log('je suis dans le service Auth ...');
       this.isAuth = false;
       console.log('... deconnecté!');
+    }
+    getAuth(){
+      return this.isAuth;
+    }
+    emitisAuthSubject() {
+      this.isAuthSubject.next(this.isAuth);
     }
   }
