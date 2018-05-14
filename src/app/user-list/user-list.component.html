@@ -1,4 +1,5 @@
-<ul class="list-group">
+  <ul class="list-group">
+    <a class="btn btn-primary" routerLink="/user-new">Nouvel utilisateur</a>
     <li class="list-group-item" *ngFor="let user of users">
       <h3>{{ user.firstName }} {{ user.lastName }}</h3>
       <p>{{ user.email }}</p>
@@ -8,5 +9,5 @@
         <span *ngFor="let hobby of user.hobbies">{{ hobby }} - </span>
       </p>
     </li>
-    <a routerLink="/user-new">Nouvel utilisateur</a>
+    
   </ul>
