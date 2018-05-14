@@ -13,14 +13,16 @@ import { AppComponent } from './app.component';
 import { CompoComponent } from './compo/compo.component';
 import { AuthComponent } from './auth/auth.component';
 import { CompoViewComponent } from './compo-view/compo-view.component';
+import { CompoEditComponent } from './compo-edit/compo-edit.component';
 import { SingleCompoComponent } from './single-compo/single-compo.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { ContactComponent } from './contact/contact.component';
-import { CompoEditComponent } from './compo-edit/compo-edit.component';
+
 
 
 const appRoutes: Routes = [
   { path: 'appareils', canActivate: [AuthGuard], component: CompoViewComponent },
+  { path: 'edit', canActivate: [AuthGuard], component: CompoEditComponent },
   { path: 'appareils/:id', canActivate: [AuthGuard], component: SingleCompoComponent },
   { path: 'contact', canActivate: [AuthGuard], component: ContactComponent },
   { path: 'auth', component: AuthComponent },
