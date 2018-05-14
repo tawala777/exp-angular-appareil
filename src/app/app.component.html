@@ -9,7 +9,8 @@
       </ul>
       <div class="navbar-right">
         <p>Vous êtes la depuis {{ tempspasse }} secondes !</p>
-        <p>Authentifié :  {{ authentifie }} </p>
+        <p *ngIf="authentifie">Vous etes connecté</p>
+        <p *ngIf="!authentifie">Vous etes déconnecté</p>
       </div>
     </div>
   </div>
