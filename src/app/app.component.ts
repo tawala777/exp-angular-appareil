@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { interval } from 'rxjs';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -13,8 +14,9 @@ export class AppComponent implements OnInit, OnDestroy {
   tempspasse: number;
   counterSubscription : Subscription;
   authentifie:boolean = false;
+  isAuthSubscription: Subscription;
 
-  constructor() {
+  constructor(private authSrv: AuthService) {
     
   }
   ngOnInit() {
@@ -29,8 +31,15 @@ export class AppComponent implements OnInit, OnDestroy {
           console.log('Observable complete!');
         }
       );
+      this.isAuthSubscription = this.authSrv.isAuthSubject.subscribe(
+        (authSt: boolean) => {
+          this.authentifie = authSt;
+        }
+      );
+      this.authSrv.emitisAuthSubject();
     }
     ngOnDestroy() {
-    this.counterSubscription.unsubscribe();
-  }
+      this.counterSubscription.unsubscribe();
+      this.isAuthSubscription.unsubscribe();
+    }
 }
