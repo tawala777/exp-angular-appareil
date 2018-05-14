@@ -1,6 +1,10 @@
 import { Subject } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
+@Injectable()
 export class AppareilService {
+  private urlMonFirebase = 'https://exp-angular-appareil.firebaseio.com/';
   appareilsSubject = new Subject<any[]>();
   private appareils = [
     {
@@ -26,6 +30,21 @@ export class AppareilService {
   ];
   private maxId = 52;
 
+  constructor(private httpClient: HttpClient) { 
+
+  }  
+  saveAppareilsToServer() {
+    this.httpClient
+      .post(this.urlMonFirebase, this.appareils)
+      .subscribe(
+        () => {
+          console.log('Enregistrement terminé !');
+        },
+        (error) => {
+          console.log('Erreur ! : ' + error);
+        }
+      );
+}
   emitAppareilSubject() {
     this.appareilsSubject.next(this.appareils.slice());
   }

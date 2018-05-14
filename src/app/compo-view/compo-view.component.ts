@@ -57,4 +57,7 @@ export class CompoViewComponent implements OnInit {
       return null;
     }
   }
+  onSaveMonFirebase() {
+    this.appSrv.saveAppareilsToServer();
+  }
 }
