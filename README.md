@@ -2,6 +2,10 @@
 
 suivi du cours : https://openclassrooms.com/courses/developpez-avec-angular 
 
+debut angular :
+compte tawala
+projet exp-angular-appareil
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.1.
 
