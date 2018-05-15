@@ -3,18 +3,18 @@
   <li class="list-group-item" *ngFor="let p of personnes">
     <h3>{{ p.prenom }} {{ p.nom }}</h3>
     <p>{{ p.email }} {{p.tel}}</p>
-    <p>Cette persone habite : {{ p.addresse }}</p>
+    <p>Cette persone habite : {{ p.adresse }}</p>
     <p *ngIf="p.diplomes && p.diplomes.length > 0">
-      Cette personne a des diplomes :
-      <span *ngFor="let x of p.diplomes">{{ x }}  </span>
+      Cette personne a des diplomes : | 
+      <span *ngFor="let x of p.diplomes">{{ x }} | </span>
     </p>
     <p *ngIf="p.experiences && p.experiences.length > 0">
-      Cette personne a des experiences pro :
-      <span *ngFor="let y of p.experiences">{{ y }} </span>
+      Cette personne a des experiences pro : | 
+      <span *ngFor="let y of p.experiences">{{ y }} | </span>
     </p>
     <p *ngIf="p.hobbies && p.hobbies.length > 0">
-      Cette personne a des hobbies !
-      <span *ngFor="let hobby of p.hobbies">{{ hobby }} </span>
+      Cette personne a des hobbies : | 
+      <span *ngFor="let hobby of p.hobbies">{{ hobby }} | </span>
     </p>
   </li>
 

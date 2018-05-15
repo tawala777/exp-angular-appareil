@@ -3,7 +3,7 @@ import { Subject } from 'rxjs';
 
 export class PersonneService {
   private personnes: Personne[] = [
-    new Personne('Will', 'Alexander', 'will@will.com', '0637222133','176 ave des Champs-Elysées',1,2,'03/04/1989',
+    new Personne('Will', 'Alexander', 'will@will.com', '0637222133','75 ave des Champs-Elysées 75008 Paris',1,2,'03/04/1989',
     ['licence de maths', 'maitrise de maths'],
     ['Google', 'Accor', 'Facebook'],
     ['Cinema', 'sport'])
