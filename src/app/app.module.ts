@@ -7,6 +7,7 @@ import { AppareilService } from './services/appareil.service';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './services/auth-guard.service';
 import { UserService } from './services/user.service';
+import { PersonneService } from './services/personne.service';
 
 import { Routes } from '@angular/router';
 
@@ -20,6 +21,8 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { ContactComponent } from './contact/contact.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserNewComponent } from './user-new/user-new.component';
+import { PersonneListComponent } from './personne-list/personne-list.component';
+import { PersonneNewComponent } from './personne-new/personne-new.component';
 
 
 
@@ -29,6 +32,7 @@ const appRoutes: Routes = [
   { path: 'appareils/:id', canActivate: [AuthGuard], component: SingleCompoComponent },
   { path: 'contact', canActivate: [AuthGuard], component: ContactComponent },
   { path: 'users',  canActivate: [AuthGuard],component: UserListComponent },
+  { path: 'personnes', component: PersonneListComponent },
   { path: 'user-new',  component: UserNewComponent },
   { path: 'auth', component: AuthComponent },
   { path: '', component: AuthComponent },
@@ -47,7 +51,9 @@ const appRoutes: Routes = [
     ContactComponent,
     CompoEditComponent,
     UserListComponent,
-    UserNewComponent
+    UserNewComponent,
+    PersonneListComponent,
+    PersonneNewComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +61,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [AppareilService,AuthService,AuthGuard,UserService],
+  providers: [AppareilService,AuthService,AuthGuard,UserService,PersonneService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
