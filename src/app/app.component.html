@@ -4,10 +4,9 @@
       <ul class="nav navbar-nav">
         <li routerLinkActive="active"><a routerLink="auth">Authentification</a></li>
         <li *ngIf="authentifie" routerLinkActive="active"><a routerLink="appareils">Appareils</a></li>
-        <li *ngIf="authentifie" routerLinkActive="active"><a routerLink="users">Users</a></li>
         <li *ngIf="authentifie" routerLinkActive="active"><a routerLink="edit">Nouvel appareil</a></li>
+        <li *ngIf="authentifie" routerLinkActive="active"><a routerLink="users">Utilisateurs</a></li>
         <li *ngIf="authentifie" routerLinkActive="active"><a routerLink="contact">Contact</a></li>
-        <li *ngIf="authentifie" routerLinkActive="active"><a href="contact">ContactHref</a></li>
       </ul>
       <div *ngIf="authentifie" class="navbar-right">
         <p>        <button class="btn btn-link" (click)="onSeDeco()">Se déconnecter</button></p>

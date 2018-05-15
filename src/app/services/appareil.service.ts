@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class AppareilService {
-  private urlMonFirebase = 'https://exp-angular-appareil.firebaseio.com/';
+  private urlMonFirebase = 'https://exp-angular-appareil3.firebaseio.com/';
   appareilsSubject = new Subject<any[]>();
   private appareils = [
     {

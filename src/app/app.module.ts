@@ -29,7 +29,7 @@ const appRoutes: Routes = [
   { path: 'edit', canActivate: [AuthGuard], component: CompoEditComponent },
   { path: 'appareils/:id', canActivate: [AuthGuard], component: SingleCompoComponent },
   { path: 'contact', canActivate: [AuthGuard], component: ContactComponent },
-  { path: 'users',  canActivate: [AuthGuard],component: UserListComponent },
+  { path: 'users', component: UserListComponent },
   { path: 'user-new',  component: UserNewComponent },
   { path: 'auth', component: AuthComponent },
   { path: '', component: AuthComponent },
